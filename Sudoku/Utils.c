@@ -227,7 +227,10 @@ int EstCandUnique(Case slot, Cand ** C)
 Case RechCaseUnique(Case O[81], int nbo, Cand ** C)
 {
 	for (int i = 0; i <= nbo; i++) {
-		if (EstCandUnique(O[i], C)) return O[i];
+		if (EstCandUnique(O[i], C)) {
+			printf("TEST %d", O[i]);
+			return O[i];
+		}
 	}
 }
 
