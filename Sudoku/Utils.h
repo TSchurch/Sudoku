@@ -18,7 +18,7 @@ int EstCandUnique(Case slot, Cand** C);
 Case RechCaseUnique(Case O[81], int nbo, Cand** C);
 void FermerCase(Case slot, int G[9][9], Case O[81], int *nbo, Cand** C);
 void FermerGrille(int G[9][9], Case O[81], int *nbo, Cand** C);
-void EcrireCand(Cand** C, int nbo);
+void EcrireCand(Cand** C);
 
 int GetOpenedSlots(int G[9][9], Case slots[81]);
 Cand** GetCandidates(int G[9][9]);

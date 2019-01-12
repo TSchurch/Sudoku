@@ -22,7 +22,7 @@ void LireGrille(const char *filename, int G[9][9]) {
 	
 	// Gerer les eventuelles erreurs
 	if (fp == NULL) {
-		printf("Could not read file, err: %s\n", strerror(errno));
+		printf("Could not read file, err: %d\n", errno);
 		exit(1);
 	}
 
@@ -227,11 +227,10 @@ int EstCandUnique(Case slot, Cand ** C)
 Case RechCaseUnique(Case O[81], int nbo, Cand ** C)
 {
 	for (int i = 0; i <= nbo; i++) {
-		if (EstCandUnique(O[i], C)) {
-			printf("TEST %d", O[i]);
-			return O[i];
-		}
+		if (EstCandUnique(O[i], C)) return O[i];
 	}
+
+	return (Case) { -1, -1 };
 }
 
 /*

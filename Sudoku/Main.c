@@ -1,4 +1,5 @@
 #include "Utils.h"
+#include <stdio.h>
 
 static int G[9][9];
 static int nbo;
@@ -8,7 +9,7 @@ static Cand** C;
 void initJeu() {
 	printf("Nom du fichier contenant la grille de sudoku :\n");
 	char filename[24];
-	gets(filename);
+	fgets(filename, sizeof(filename), stdin);
 
 	LireGrille(filename, G);
 
