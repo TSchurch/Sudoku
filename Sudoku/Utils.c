@@ -64,6 +64,24 @@ void LireGrille(const char *filename, int G[9][9]) {
 }
 
 /*
+	getQuadrantStart
+	int pos: La position de l'element
+
+	return int: le debut de la grille de l'element
+*/
+int getQuadrantStart(int pos) {
+	if (pos >= 0 && pos <= 2) {
+		return 0;
+	}
+	else if (pos >= 3 && pos <= 5) {
+		return 3;
+	}
+	else {
+		return 6;
+	}
+}
+
+/*
 	EcrireGrille
 	int[9][9] G: Le tableau qui contient la grille
 
@@ -243,7 +261,7 @@ Case RechCaseUnique(Case O[81], int nbo, Cand ** C)
 
 	Ferme la case slot
 */
-void FermerCase(Case slot, int G[9][9], Case O[81], int *nbo, Cand** C)
+void FermerCase(Case slot, int G[9][9], Case O[81], int nbo, Cand** C)
 {
 	G[slot.y][slot.x] = C[slot.y][slot.x].tab[0];
 	C[slot.y][slot.x].nbc = 0;
@@ -251,13 +269,13 @@ void FermerCase(Case slot, int G[9][9], Case O[81], int *nbo, Cand** C)
 
 	// find current index
 	int index;
-	for (int i = 0; i <= *nbo; i++) {
+	for (int i = 0; i <= nbo; i++) {
 		if (O[i].x == slot.x && O[i].y == slot.y) {
 			index = i;
 		}
 	}
 
-	*nbo = *nbo-1;
+	nbo = nbo-1;
 }
 
 /*
@@ -269,10 +287,10 @@ void FermerCase(Case slot, int G[9][9], Case O[81], int *nbo, Cand** C)
 
 	Ferme la grille G
 */
-void FermerGrille(int G[9][9], Case O[81], int *nbo, Cand ** C)
+void FermerGrille(int G[9][9], Case O[81], int nbo, Cand ** C)
 {
-	while (*nbo >= 1) {
-		printf("\nVoici les candidats des %d cases ouvertes de la grille : \n", *nbo);
+	while (nbo >= 1) {
+		printf("\nVoici les candidats des %d cases ouvertes de la grille : \n", nbo);
 		EcrireCand(C);
 		printf("\nElimination des candidats unique...\n");
 		Case slot = RechCaseUnique(O, nbo, C);
@@ -281,22 +299,6 @@ void FermerGrille(int G[9][9], Case O[81], int *nbo, Cand ** C)
 		printf("\nla case (%d,%d) est fermee avec le chiffre %d\n\n", slot.x, slot.y, value);
 		EcrireGrille(G);
 		C = GetCandidates(G);
-	}
-}
-
-/*
-	getQuadrantStart
-	int pos: La position de l'element
-
-	return int: le debut de la grille de l'element
-*/
-int getQuadrantStart(int pos) {
-	if (pos >= 0 && pos <= 2) {
-		return 0;
-	} else if (pos >= 3 && pos <= 5) {
-		return 3;
-	} else {
-		return 6;
 	}
 }
 
