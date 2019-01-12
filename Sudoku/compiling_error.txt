@@ -1,0 +1,6 @@
+c:/mingw/bin/../lib/gcc/mingw32/8.2.0/../../../../mingw32/bin/ld.exe: C:\Users\benji\AppData\Local\Temp\ccZHYiPb.o:Main.c:(.text+0x3d): undefined reference to `LireGrille'
+c:/mingw/bin/../lib/gcc/mingw32/8.2.0/../../../../mingw32/bin/ld.exe: C:\Users\benji\AppData\Local\Temp\ccZHYiPb.o:Main.c:(.text+0x55): undefined reference to `EcrireGrille'
+c:/mingw/bin/../lib/gcc/mingw32/8.2.0/../../../../mingw32/bin/ld.exe: C:\Users\benji\AppData\Local\Temp\ccZHYiPb.o:Main.c:(.text+0x69): undefined reference to `GetOpenedSlots'
+c:/mingw/bin/../lib/gcc/mingw32/8.2.0/../../../../mingw32/bin/ld.exe: C:\Users\benji\AppData\Local\Temp\ccZHYiPb.o:Main.c:(.text+0x7a): undefined reference to `GetCandidates'
+c:/mingw/bin/../lib/gcc/mingw32/8.2.0/../../../../mingw32/bin/ld.exe: C:\Users\benji\AppData\Local\Temp\ccZHYiPb.o:Main.c:(.text+0xa4): undefined reference to `FermerGrille'
+collect2.exe: error: ld returned 1 exit status
